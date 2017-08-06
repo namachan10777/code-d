@@ -36,6 +36,7 @@
 		"onCommand:code-d.build",
 		"onCommand:code-d.stop",
 		"onCommand:code-d.debug",
+		"onCommand:code-d.test",
 		"onCommand:code-d.uploadSelection",
 		"onCommand:code-d.insertDscanner",
 		"onCommand:code-d.rdmdCurrent",
@@ -392,6 +393,10 @@
 			{
 				"command": "code-d.debug",
 				"title": "code-d: Debug project using code-debug"
+			},
+			{
+				"command": "code-d.test",
+				"title": "code-d: Test project"
 			},
 			{
 				"command": "code-d.uploadSelection",

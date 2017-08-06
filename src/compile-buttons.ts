@@ -30,23 +30,28 @@ export class CompileButtons implements vscode.Disposable {
 		this.buildButton.text = "$(file-binary)";
 		this.startButton.text = " $(triangle-right) ";
 		this.debugButton.text = "$(bug)";
+		this.testButton.text = "$(check)"
 
 		this.buildButton.tooltip = "Build project";
 		this.startButton.tooltip = "Run project";
 		this.debugButton.tooltip = "Debug project";
+		this.testButton.tooltip = "Test project";
 
 		this.buildButton.command = "code-d.build";
 		this.startButton.command = "code-d.run";
 		this.debugButton.command = "code-d.debug";
+		this.testButton.command = "code0-d.test";
 
 		this.buildButton.show();
 		this.startButton.show();
 		this.debugButton.show();
+		this.testButton.show();
 
 		vscode.commands.registerCommand("code-d.build", this.build, this);
 		vscode.commands.registerCommand("code-d.run", this.run, this);
 		vscode.commands.registerCommand("code-d.stop", this.stop, this);
 		vscode.commands.registerCommand("code-d.debug", this.debug, this);
+		vscode.commands.registerCommand("code-d.test", this.test, this);
 	}
 
 	handleData(data) {
@@ -70,6 +75,11 @@ export class CompileButtons implements vscode.Disposable {
 	debug() {
 		this.isDebug = true;
 		this.startProc("build");
+	}
+
+	test() {
+		this.isDebug = true;
+		this.startProc("test");
 	}
 
 	startProc(cmd, inTerminal = false) {
